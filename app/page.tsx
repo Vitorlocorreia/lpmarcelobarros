@@ -98,7 +98,7 @@ export default function Home() {
 
     const formatTextMap: Record<string, string> = {
       online: "Prefiro atendimento online via videochamada.",
-      presencial: "Prefiro atendimento presencial em Fortaleza."
+      presencial: "Prefiro atendimento presencial em Recife (Edf. Grand Tower Shopping)."
     };
 
     const text = `Olá, Marcelo Barros & Advogados Associados. ${profileTextMap[prof] || ""} ${formatTextMap[fmt] || ""}`;
@@ -110,11 +110,36 @@ export default function Home() {
       <div className="loader" aria-hidden="true"><div className="loader-mark">MB</div><div className="loader-line" /></div>
       <header className="topbar">
         <button className="brand" onClick={() => go("#inicio")} aria-label="Voltar ao início"><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button>
+        
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navegação principal">
-          <button onClick={() => go("#inicio")}>Início</button><button onClick={() => go("#sobre")}>Sobre</button><button onClick={() => go("#atuacao")}>Atuação</button><button onClick={() => go("#diferenciais")}>Diferenciais</button><button onClick={() => go("#contato")}>Contato</button>
+          <div className="mobile-nav-header">
+            <button className="brand" onClick={() => { setMenuOpen(false); go("#inicio"); }} aria-label="Voltar ao início">
+              <img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" />
+            </button>
+            <button className="mobile-nav-close" onClick={() => setMenuOpen(false)} aria-label="Fechar menu">✕</button>
+          </div>
+
+          <div className="mobile-nav-links">
+            <button onClick={() => { setMenuOpen(false); go("#inicio"); }}><span>01</span> Início <i>↗</i></button>
+            <button onClick={() => { setMenuOpen(false); go("#sobre"); }}><span>02</span> Sobre <i>↗</i></button>
+            <button onClick={() => { setMenuOpen(false); go("#atuacao"); }}><span>03</span> Atuação <i>↗</i></button>
+            <button onClick={() => { setMenuOpen(false); go("#diferenciais"); }}><span>04</span> Diferenciais <i>↗</i></button>
+            <button onClick={() => { setMenuOpen(false); go("#contato"); }}><span>05</span> Contato <i>↗</i></button>
+          </div>
+
+          <div className="mobile-nav-footer">
+            <a className="button gold mobile-nav-cta" href={getWhatsAppUrl("consulta")} target="_blank" rel="noreferrer">
+              Falar no WhatsApp <span>↗</span>
+            </a>
+            <div className="mobile-nav-info">
+              <p>📍 Rua Bruno Veloso, 1280, Sala 609<br/>Edf. Grand Tower Shopping — Recife - PE</p>
+              <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv ↗</a>
+            </div>
+          </div>
         </nav>
+
         <a className="nav-cta" href={getWhatsAppUrl("consulta")} target="_blank" rel="noreferrer"><span>↗</span> Falar no WhatsApp</a>
-        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu"><i/><i/></button>
+        <button className={menuOpen ? "menu-toggle open" : "menu-toggle"} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}><i/><i/></button>
       </header>
 
       <main>
