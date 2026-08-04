@@ -219,7 +219,56 @@ export default function Home() {
           <div className="journey-steps"><article data-reveal><span>01</span><h3>Escutamos</h3><p>Entendemos o contexto, as prioridades e tudo o que está em jogo.</p></article><article data-reveal><span>02</span><h3>Planejamos</h3><p>Desenhamos uma estratégia clara, responsável e sob medida.</p></article><article data-reveal><span>03</span><h3>Conduzimos</h3><p>Executamos cada movimento com rigor e comunicação constante.</p></article><article data-reveal><span>04</span><h3>Evoluímos</h3><p>Acompanhamos resultados e antecipamos os próximos cenários.</p></article></div>
         </section>
 
-        <section className="office" data-reveal><div className="office-map"><div className="map-lines"/><span className="map-pin">MB</span><small>08°07' S<br/>34°53' W</small></div><div className="office-copy"><div className="section-label"><span>06</span> ONDE ESTAMOS</div><h2>Recife,<br/><em>Pernambuco.</em></h2><p>Um espaço pensado para receber, ouvir e construir decisões importantes com a tranquilidade que elas merecem.</p><address>Rua Bruno Veloso, 1280, Sala 609<br/>Edf. Grand Tower Shopping — Boa Viagem, Recife — PE</address><a href="https://maps.google.com/?q=Rua+Bruno+Veloso+1280+Recife" target="_blank" rel="noreferrer">Como chegar no Google Maps ↗</a></div></section>
+        <section className="office" data-reveal>
+          <div className="office-map">
+            <iframe 
+              title="Localização Marcelo Barros & Advogados Associados - Edf. Grand Tower Shopping, Recife PE"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.0468087965826!2d-34.898863624021295!3d-8.117006891912173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1fa49c39dfeb%3A0x6b3b27b87db07c88!2sRua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE%2C%2051021-000!5e0!3m2!1spt-BR!2sbr!4v1722800000000!5m2!1spt-BR!2sbr" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="office-map-badge">
+              <span>📍 EDF. GRAND TOWER SHOPPING</span>
+              <small>Rua Bruno Veloso, 1280 • Sala 609</small>
+            </div>
+          </div>
+          
+          <div className="office-copy">
+            <div className="section-label"><span>06</span> ONDE ESTAMOS</div>
+            <h2>Recife,<br/><em>Pernambuco.</em></h2>
+            <p>Um espaço pensado para receber, ouvir e construir decisões importantes com a tranquilidade que elas merecem.</p>
+            
+            <address>
+              Rua Bruno Veloso, 1280, Sala 609<br/>
+              Edf. Grand Tower Shopping — Boa Viagem, Recife — PE
+            </address>
+
+            <div className="office-amenities">
+              <div className="amenity-item"><span>🚗</span> <div><strong>Estacionamento Privativo</strong><small>Vagas no próprio edifício Grand Tower</small></div></div>
+              <div className="amenity-item"><span>🏢</span> <div><strong>Recepção & Segurança</strong><small>Controle de acesso no térreo / Sala 609</small></div></div>
+              <div className="amenity-item"><span>📍</span> <div><strong>Localização Privilegiada</strong><small>Boa Viagem, próximo ao Shopping Recife</small></div></div>
+            </div>
+
+            <div className="office-routes">
+              <span className="routes-title">ABRIR ROTA DIRETA NO SEU APP:</span>
+              <div className="routes-buttons">
+                <a className="route-btn maps" href="https://maps.google.com/?q=Rua+Bruno+Veloso+1280+Recife" target="_blank" rel="noreferrer">
+                  <span>🗺️ Google Maps</span> <i>↗</i>
+                </a>
+                <a className="route-btn waze" href="https://waze.com/ul?q=Rua%20Bruno%20Veloso%201280%20Recife&navigate=yes" target="_blank" rel="noreferrer">
+                  <span>🚗 Waze</span> <i>↗</i>
+                </a>
+                <a className="route-btn uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=Rua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE" target="_blank" rel="noreferrer">
+                  <span>🚖 Uber</span> <i>↗</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="contact" id="contato">
           <div className="contact-glow" />
