@@ -220,20 +220,11 @@ export default function Home() {
         </section>
 
         <section className="office" data-reveal>
-          <div className="office-map">
-            <iframe 
-              title="Localização Marcelo Barros & Advogados Associados - Edf. Grand Tower Shopping, Recife PE"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.0468087965826!2d-34.898863624021295!3d-8.117006891912173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1fa49c39dfeb%3A0x6b3b27b87db07c88!2sRua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE%2C%2051021-000!5e0!3m2!1spt-BR!2sbr!4v1722800000000!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="office-visual-box">
+            <img className="office-building-img" src="/grand-tower.jpg" alt="Edifício Empresarial Grand Tower Shopping — Recife - PE" />
             <div className="office-map-badge">
               <span>📍 EDF. GRAND TOWER SHOPPING</span>
-              <small>Rua Bruno Veloso, 1280 • Sala 609</small>
+              <small>Rua Bruno Veloso, 1280 • Sala 609 — Boa Viagem</small>
             </div>
           </div>
           
