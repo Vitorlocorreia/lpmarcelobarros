@@ -65,8 +65,8 @@ export default function Home() {
           <div className="hero-content">
             <p className="hero-kicker"><span /> ADVOCACIA COM PROPÓSITO</p>
             <h1 className="hero-title"><span className="line"><span>Estratégia jurídica</span></span><span className="line"><span>para <em>proteger</em> o que</span></span><span className="line"><span>realmente importa.</span></span></h1>
-            <p className="hero-copy">Atendimento próximo. Visão estratégica.<br/>Resultados construídos com excelência.</p>
-            <div className="hero-actions"><button className="button gold" onClick={() => go("#contato")}>Agendar consulta <span>↗</span></button><button className="button ghost" onClick={() => go("#sobre")}>Conheça o escritório <span>↓</span></button></div>
+            <p className="hero-copy">Atendimento personalizado, atuação técnica<br/>e foco em resultados em cada etapa do seu processo.</p>
+            <div className="hero-actions"><button className="button gold" onClick={() => go("#contato")}>Agendar consulta <span>↗</span></button><a className="button ghost" href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">Falar pelo WhatsApp <span>↗</span></a></div>
           </div>
           <div className="scroll-cue"><span>SCROLL</span><i /></div>
           <div className="hero-index">01 <span/> 05</div>
