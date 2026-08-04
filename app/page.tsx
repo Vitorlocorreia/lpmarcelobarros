@@ -120,7 +120,7 @@ export default function Home() {
       <main>
         <section className="hero" id="inicio">
           <div className="hero-grain" />
-          <picture className="hero-picture"><source media="(max-width: 900px)" srcSet="/hero-real-partners.jpg"/><img className="hero-people" src="/hero-real-partners.jpg" alt="Marcelo Barros e Natália Mesquita em ambiente profissional" /></picture>
+          <picture className="hero-picture"><source media="(max-width: 900px)" srcSet="/hero-real-partners.jpg"/><img className="hero-people" src="/hero-marco-barra.png" alt="Marcelo Barros e Natália Mesquita em ambiente profissional" /></picture>
           <div className="hero-content">
             <p className="hero-kicker"><span /> ADVOCACIA COM PROPÓSITO</p>
             <h1 className="hero-title"><span className="line"><span>Estratégia jurídica</span></span><span className="line"><span>para <em>proteger</em> o que</span></span><span className="line"><span>realmente importa.</span></span></h1>
