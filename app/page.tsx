@@ -70,7 +70,6 @@ export default function Home() {
           </div>
           <div className="scroll-cue"><span>SCROLL</span><i /></div>
           <div className="hero-index">01 <span/> 05</div>
-          <div className="mobile-hero-metrics"><div><strong>+500</strong><span>Clientes atendidos</span></div><div><strong>+10 anos</strong><span>De experiência</span></div><div><strong>Atendimento</strong><span>Personalizado</span></div><div><strong>95%</strong><span>Taxa de satisfação</span></div></div>
         </section>
 
         <section className="manifesto" id="sobre">
