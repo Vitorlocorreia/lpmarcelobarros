@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Marco Barra | Advocacia Associada",
+  title: "Marcelo Barros | Advogados Associados",
   description: "Estratégia jurídica para proteger o que realmente importa.",
 };
 
