@@ -38,12 +38,11 @@
 @media(max-width:900px){
   .hero{
     height:100svh;
-    min-height:640px;
-    max-height:920px;
+    min-height:100svh;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-    padding-bottom:28px;
+    padding-bottom:24px;
     background:#070707;
     position:relative;
     overflow:hidden;
@@ -73,7 +72,7 @@
     position:absolute;
     inset:0;
     z-index:2;
-    background:linear-gradient(180deg, rgba(7,7,7,0.7) 0%, rgba(7,7,7,0.1) 30%, transparent 50%, rgba(7,7,7,0.85) 100%);
+    background:linear-gradient(180deg, #070707 0%, rgba(7,7,7,0.75) 28%, rgba(7,7,7,0.25) 50%, transparent 68%, rgba(7,7,7,0.88) 100%);
     pointer-events:none;
     display:block;
   }
@@ -81,7 +80,7 @@
     position:relative;
     z-index:3;
     margin:0;
-    padding:96px 24px 0;
+    padding:94px 22px 0;
     max-width:none;
     width:100%;
     flex:1;
