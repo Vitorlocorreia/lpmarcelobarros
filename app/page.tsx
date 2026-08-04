@@ -35,7 +35,6 @@ export default function Home() {
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 84%" } });
       });
       gsap.to(".hero-people", { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 } });
-      gsap.to(".marquee-track", { xPercent: -30, ease: "none", scrollTrigger: { trigger: ".marquee", start: "top bottom", end: "bottom top", scrub: 1 } });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -90,8 +89,6 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="marquee" aria-hidden="true"><div className="marquee-track">PRECISÃO <i>✦</i> ESTRATÉGIA <i>✦</i> CONFIANÇA <i>✦</i> PRECISÃO <i>✦</i> ESTRATÉGIA</div></div>
-
         <section className="difference" id="diferenciais">
           <div className="difference-visual" data-reveal><div className="difference-photo"><img src="/marcelo-por-que-nos.png" alt="Marcelo Barros durante uma reunião estratégica"/><span>ESTRATÉGIA EM MOVIMENTO</span></div></div>
           <div className="difference-copy" data-reveal><div className="section-label"><span>03</span> POR QUE NÓS</div><h2>Excelência<br/>em cada <em>detalhe.</em></h2><p>Não acreditamos em soluções genéricas. Combinamos profundidade técnica, clareza na comunicação e presença constante em cada etapa.</p><ul><li><span>01</span><div><strong>Atendimento próximo</strong><small>Você acompanha e entende cada movimento.</small></div></li><li><span>02</span><div><strong>Estratégia sob medida</strong><small>Cada contexto recebe uma abordagem única.</small></div></li><li><span>03</span><div><strong>Compromisso com resultados</strong><small>Rigor, agilidade e foco no que importa.</small></div></li></ul></div>
@@ -119,9 +116,8 @@ export default function Home() {
 
         <section className="contact" id="contato">
           <div className="contact-glow" />
-          <p data-reveal>O PRIMEIRO PASSO É UMA CONVERSA</p>
-          <h2 data-reveal>Vamos construir<br/><em>o próximo movimento?</em></h2>
-          <a className="contact-link" data-reveal href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">Agendar uma consulta <span>↗</span></a>
+          <div className="contact-statement" data-reveal><div className="section-label light"><span>07</span> CONVERSA ESTRATÉGICA</div><h2>Clareza para<br/>o que vem <em>agora.</em></h2><p>Quando existe uma decisão importante, o primeiro passo não é uma resposta pronta. É entender o contexto, os riscos e o que precisa ser protegido.</p><div className="contact-signature"><span>ATENDIMENTO EM FORTALEZA E ONLINE</span><span>SIGILO DESDE O PRIMEIRO CONTATO</span></div></div>
+          <div className="contact-paths" data-reveal><span className="contact-private">ATENDIMENTO CONFIDENCIAL</span><h3>Por onde começamos?</h3><p>Escolha o cenário que melhor representa o seu momento.</p><div className="path-list"><a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20orientação%20para%20prevenir%20riscos." target="_blank" rel="noreferrer"><span><b>01</b> Quero prevenir riscos</span><i>↗</i></a><a href="https://wa.me/5500000000000?text=Olá,%20tenho%20uma%20demanda%20jurídica%20em%20andamento." target="_blank" rel="noreferrer"><span><b>02</b> Tenho uma demanda em andamento</span><i>↗</i></a><a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20conversa%20inicial%20sobre%20meu%20caso." target="_blank" rel="noreferrer"><span><b>03</b> Preciso de uma conversa inicial</span><i>↗</i></a></div><small>Você será direcionado ao WhatsApp do escritório.</small></div>
           <div className="contact-details" data-reveal><span>Fortaleza, Ceará</span><span>contato@marcelobarros.adv.br</span><span>Seg — Sex, 08h às 18h</span></div>
         </section>
       </main>
