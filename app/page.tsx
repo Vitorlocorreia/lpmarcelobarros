@@ -5,10 +5,30 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const practices = [
-  { n: "01", title: "Direito Empresarial", text: "Estrutura, prevenção e estratégia para decisões empresariais seguras." },
-  { n: "02", title: "Direito Civil", text: "Soluções técnicas para relações, contratos e proteção patrimonial." },
-  { n: "03", title: "Direito Trabalhista", text: "Atuação consultiva e contenciosa com visão prática e responsável." },
-  { n: "04", title: "Direito Imobiliário", text: "Segurança jurídica para negociações, imóveis e novos investimentos." },
+  {
+    n: "01",
+    title: "Direito Empresarial",
+    text: "Estrutura, prevenção e estratégia para decisões empresariais seguras.",
+    tags: ["Reestruturação Societária", "Contratos Corporativos", "Gestão de Riscos", "Governança & Compliance"]
+  },
+  {
+    n: "02",
+    title: "Direito Civil",
+    text: "Soluções técnicas para relações, contratos e proteção patrimonial.",
+    tags: ["Planejamento Patrimonial", "Contratos de Alto Valor", "Responsabilidade Civil", "Resolução de Conflitos"]
+  },
+  {
+    n: "03",
+    title: "Direito Trabalhista",
+    text: "Atuação consultiva e contenciosa com visão prática e responsável.",
+    tags: ["Advocacia Preventiva", "Litígios de Alto Impacto", "Auditoria Trabalhista", "Adequação de Rotinas"]
+  },
+  {
+    n: "04",
+    title: "Direito Imobiliário",
+    text: "Segurança jurídica para negociações, imóveis e novos investimentos.",
+    tags: ["Negócios Imobiliários", "Due Diligence", "Regularização de Bens", "Investimentos Seguros"]
+  },
 ];
 
 export default function Home() {
@@ -16,6 +36,9 @@ export default function Home() {
   const teamSlider = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLawyer, setActiveLawyer] = useState(0);
+  const [activePractice, setActivePractice] = useState<string | null>(null);
+  const [selectedProfile, setSelectedProfile] = useState<string>("empresarial");
+  const [selectedFormat, setSelectedFormat] = useState<string>("online");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -34,7 +57,23 @@ export default function Home() {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 84%" } });
       });
-      gsap.to(".hero-people", { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 } });
+      gsap.utils.toArray<HTMLElement>(".counter").forEach((counter) => {
+        const target = parseInt(counter.getAttribute("data-target") || "0", 10);
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: counter,
+            start: "top 88%",
+            once: true,
+          },
+          onUpdate: () => {
+            counter.innerText = Math.floor(obj.val).toString();
+          },
+        });
+      });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -46,6 +85,26 @@ export default function Home() {
     teamSlider.current?.scrollTo({ left: teamSlider.current.clientWidth * next, behavior: "smooth" });
   };
 
+  const getWhatsAppUrl = (profileKey?: string, formatKey?: string) => {
+    const prof = profileKey || selectedProfile;
+    const fmt = formatKey || selectedFormat;
+
+    const profileTextMap: Record<string, string> = {
+      empresarial: "Sou empresário/gestor e preciso de assessoria jurídica estratégica.",
+      patrimonial: "Gostaria de orientação para proteção e planejamento patrimonial.",
+      litigio: "Tenho uma demanda ou processo em andamento e preciso de análise.",
+      consulta: "Gostaria de agendar uma consulta inicial com os advogados."
+    };
+
+    const formatTextMap: Record<string, string> = {
+      online: "Prefiro atendimento online via videochamada.",
+      presencial: "Prefiro atendimento presencial em Fortaleza."
+    };
+
+    const text = `Olá, Marcelo Barros & Advogados Associados. ${profileTextMap[prof] || ""} ${formatTextMap[fmt] || ""}`;
+    return `https://wa.me/5585999999999?text=${encodeURIComponent(text)}`;
+  };
+
   return (
     <div ref={root} className="site-shell">
       <div className="loader" aria-hidden="true"><div className="loader-mark">MB</div><div className="loader-line" /></div>
@@ -54,7 +113,7 @@ export default function Home() {
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navegação principal">
           <button onClick={() => go("#inicio")}>Início</button><button onClick={() => go("#sobre")}>Sobre</button><button onClick={() => go("#atuacao")}>Atuação</button><button onClick={() => go("#diferenciais")}>Diferenciais</button><button onClick={() => go("#contato")}>Contato</button>
         </nav>
-        <a className="nav-cta" href="https://wa.me/5500000000000" target="_blank" rel="noreferrer"><span>↗</span> Falar no WhatsApp</a>
+        <a className="nav-cta" href={getWhatsAppUrl("consulta")} target="_blank" rel="noreferrer"><span>↗</span> Falar no WhatsApp</a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menu"><i/><i/></button>
       </header>
 
@@ -66,7 +125,7 @@ export default function Home() {
             <p className="hero-kicker"><span /> ADVOCACIA COM PROPÓSITO</p>
             <h1 className="hero-title"><span className="line"><span>Estratégia jurídica</span></span><span className="line"><span>para <em>proteger</em> o que</span></span><span className="line"><span>realmente importa.</span></span></h1>
             <p className="hero-copy">Atendimento personalizado, atuação técnica<br/>e foco em resultados em cada etapa do seu processo.</p>
-            <div className="hero-actions"><button className="button gold" onClick={() => go("#contato")}>Agendar consulta <span>↗</span></button><a className="button ghost" href="https://wa.me/5500000000000" target="_blank" rel="noreferrer">Falar pelo WhatsApp <span>↗</span></a></div>
+            <div className="hero-actions"><button className="button gold" onClick={() => go("#contato")}>Agendar consulta <span>↗</span></button><a className="button ghost" href={getWhatsAppUrl("consulta")} target="_blank" rel="noreferrer">Falar pelo WhatsApp <span>↗</span></a></div>
           </div>
           <div className="scroll-cue"><span>SCROLL</span><i /></div>
           <div className="hero-index">01 <span/> 05</div>
@@ -78,14 +137,35 @@ export default function Home() {
             <h2 data-reveal>Direito exige<br/>mais que respostas.<br/><em>Exige visão.</em></h2>
             <div className="manifesto-copy" data-reveal><p>Transformamos complexidade jurídica em caminhos claros, seguros e consistentes. Cada caso é conduzido com escuta, rigor técnico e uma estratégia verdadeiramente personalizada.</p><div className="signature">Marcelo Barros <small>SÓCIO FUNDADOR</small></div></div>
           </div>
-          <div className="metrics" data-reveal><div><strong>500<sup>+</sup></strong><span>Clientes atendidos</span></div><div><strong>10<sup>+</sup></strong><span>Anos de experiência</span></div><div><strong>95<sup>%</sup></strong><span>Índice de satisfação</span></div></div>
+          <div className="metrics" data-reveal>
+            <div><strong><span className="counter" data-target="500">0</span><sup>+</sup></strong><span>Clientes atendidos</span></div>
+            <div><strong><span className="counter" data-target="10">0</span><sup>+</sup></strong><span>Anos de experiência</span></div>
+            <div><strong><span className="counter" data-target="95">0</span><sup>%</sup></strong><span>Índice de satisfação</span></div>
+          </div>
         </section>
 
         <section className="practice" id="atuacao">
           <div className="section-label light" data-reveal><span>02</span> ÁREAS DE ATUAÇÃO</div>
-          <div className="practice-heading" data-reveal><h2>Expertise que<br/><em>move decisões.</em></h2><p>Atuação multidisciplinar para antecipar riscos, proteger interesses e criar soluções que permanecem.</p></div>
+          <div className="practice-heading" data-reveal><h2>Expertise que<br/><em>move decisões.</em></h2><p>Atuação multidisciplinar para antecipar riscos, proteger interesses e criar soluções que permanecem. Clique nas áreas abaixo para explorar.</p></div>
           <div className="practice-list">
-            {practices.map((item) => <article key={item.n} className="practice-item" data-reveal><span className="practice-number">{item.n}</span><h3>{item.title}</h3><p>{item.text}</p><span className="circle-arrow">↗</span></article>)}
+            {practices.map((item) => (
+              <article 
+                key={item.n} 
+                className={`practice-item ${activePractice === item.n ? "active" : ""}`} 
+                onClick={() => setActivePractice(activePractice === item.n ? null : item.n)}
+                data-reveal
+              >
+                <span className="practice-number">{item.n}</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <span className="circle-arrow">{activePractice === item.n ? "↓" : "↗"}</span>
+                <div className="practice-details">
+                  <div className="practice-tags">
+                    {item.tags.map((tag) => <span key={tag} className="practice-tag">{tag}</span>)}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -116,12 +196,94 @@ export default function Home() {
 
         <section className="contact" id="contato">
           <div className="contact-glow" />
-          <div className="contact-statement" data-reveal><div className="section-label light"><span>07</span> CONVERSA ESTRATÉGICA</div><h2>Clareza para<br/>o que vem <em>agora.</em></h2><p>Quando existe uma decisão importante, o primeiro passo não é uma resposta pronta. É entender o contexto, os riscos e o que precisa ser protegido.</p><div className="contact-signature"><span>ATENDIMENTO EM FORTALEZA E ONLINE</span><span>SIGILO DESDE O PRIMEIRO CONTATO</span></div></div>
-          <div className="contact-paths" data-reveal><span className="contact-private">ATENDIMENTO CONFIDENCIAL</span><h3>Por onde começamos?</h3><p>Escolha o cenário que melhor representa o seu momento.</p><div className="path-list"><a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20orientação%20para%20prevenir%20riscos." target="_blank" rel="noreferrer"><span><b>01</b> Quero prevenir riscos</span><i>↗</i></a><a href="https://wa.me/5500000000000?text=Olá,%20tenho%20uma%20demanda%20jurídica%20em%20andamento." target="_blank" rel="noreferrer"><span><b>02</b> Tenho uma demanda em andamento</span><i>↗</i></a><a href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20uma%20conversa%20inicial%20sobre%20meu%20caso." target="_blank" rel="noreferrer"><span><b>03</b> Preciso de uma conversa inicial</span><i>↗</i></a></div><small>Você será direcionado ao WhatsApp do escritório.</small></div>
-          <div className="contact-details" data-reveal><span>Fortaleza, Ceará</span><span>contato@marcelobarros.adv.br</span><span>Seg — Sex, 08h às 18h</span></div>
+          <div className="contact-statement" data-reveal>
+            <div className="section-label light"><span>07</span> CONVERSA ESTRATÉGICA</div>
+            <h2>Clareza para<br/>o que vem <em>agora.</em></h2>
+            <p>Quando existe uma decisão importante, o primeiro passo não é uma resposta pronta. É entender o contexto, os riscos e o que precisa ser protegido.</p>
+            <div className="contact-signature">
+              <span>ATENDIMENTO EM FORTALEZA E ONLINE</span>
+              <span>SIGILO DESDE O PRIMEIRO CONTATO</span>
+            </div>
+          </div>
+          
+          <div className="diagnostic-box" data-reveal>
+            <span className="contact-private">DIAGNÓSTICO JURÍDICO RÁPIDO</span>
+            <h3>Como podemos ajudar?</h3>
+            <p>Selecione o seu momento para direcionar o atendimento diretamente ao especialista responsável.</p>
+
+            <span className="diagnostic-group-label">1. QUAL O SEU MOMENTO ATUAL?</span>
+            <div className="diagnostic-options">
+              <button 
+                className={`diagnostic-btn ${selectedProfile === "empresarial" ? "active" : ""}`}
+                onClick={() => setSelectedProfile("empresarial")}
+              >
+                <span>Empresarial & Societário</span>
+                <i>{selectedProfile === "empresarial" ? "✓" : "→"}</i>
+              </button>
+              <button 
+                className={`diagnostic-btn ${selectedProfile === "patrimonial" ? "active" : ""}`}
+                onClick={() => setSelectedProfile("patrimonial")}
+              >
+                <span>Proteção Patrimonial</span>
+                <i>{selectedProfile === "patrimonial" ? "✓" : "→"}</i>
+              </button>
+              <button 
+                className={`diagnostic-btn ${selectedProfile === "litigio" ? "active" : ""}`}
+                onClick={() => setSelectedProfile("litigio")}
+              >
+                <span>Demanda em Andamento</span>
+                <i>{selectedProfile === "litigio" ? "✓" : "→"}</i>
+              </button>
+              <button 
+                className={`diagnostic-btn ${selectedProfile === "consulta" ? "active" : ""}`}
+                onClick={() => setSelectedProfile("consulta")}
+              >
+                <span>Consulta Estratégica</span>
+                <i>{selectedProfile === "consulta" ? "✓" : "→"}</i>
+              </button>
+            </div>
+
+            <span className="diagnostic-group-label">2. PREFERÊNCIA DE FORMATO</span>
+            <div className="diagnostic-options">
+              <button 
+                className={`diagnostic-btn ${selectedFormat === "online" ? "active" : ""}`}
+                onClick={() => setSelectedFormat("online")}
+              >
+                <span>💻 Online (Videochamada)</span>
+                <i>{selectedFormat === "online" ? "✓" : "→"}</i>
+              </button>
+              <button 
+                className={`diagnostic-btn ${selectedFormat === "presencial" ? "active" : ""}`}
+                onClick={() => setSelectedFormat("presencial")}
+              >
+                <span>🏛️ Presencial em Fortaleza</span>
+                <i>{selectedFormat === "presencial" ? "✓" : "→"}</i>
+              </button>
+            </div>
+
+            <a className="diagnostic-cta-btn" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
+              <span>Iniciar conversa no WhatsApp</span>
+              <i>↗</i>
+            </a>
+          </div>
+
+          <div className="contact-details" data-reveal>
+            <span>Fortaleza, Ceará</span>
+            <span>contato@marcelobarros.adv.br</span>
+            <span>Seg — Sex, 08h às 18h</span>
+          </div>
         </section>
       </main>
-      <footer><button className="brand footer-brand" onClick={() => go("#inicio")}><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button><p>© 2026 Marcelo Barros & Advogados Associados</p><div><a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">Instagram</a><a href="#inicio">LinkedIn</a></div></footer>
+
+      <footer>
+        <button className="brand footer-brand" onClick={() => go("#inicio")}><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button>
+        <p>© 2026 Marcelo Barros & Advogados Associados</p>
+        <div>
+          <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="#inicio">LinkedIn</a>
+        </div>
+      </footer>
     </div>
   );
 }
+
