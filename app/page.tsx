@@ -13,7 +13,9 @@ const practices = [
 
 export default function Home() {
   const root = useRef<HTMLDivElement>(null);
+  const teamSlider = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLawyer, setActiveLawyer] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -39,6 +41,11 @@ export default function Home() {
   }, []);
 
   const go = (id: string) => { document.querySelector(id)?.scrollIntoView({ behavior: "smooth" }); setMenuOpen(false); };
+  const showLawyer = (index: number) => {
+    const next = (index + 2) % 2;
+    setActiveLawyer(next);
+    teamSlider.current?.scrollTo({ left: teamSlider.current.clientWidth * next, behavior: "smooth" });
+  };
 
   return (
     <div ref={root} className="site-shell">
@@ -86,15 +93,19 @@ export default function Home() {
         <div className="marquee" aria-hidden="true"><div className="marquee-track">PRECISÃO <i>✦</i> ESTRATÉGIA <i>✦</i> CONFIANÇA <i>✦</i> PRECISÃO <i>✦</i> ESTRATÉGIA</div></div>
 
         <section className="difference" id="diferenciais">
-          <div className="difference-visual" data-reveal><div className="wood-panel"><span className="big-mark">MB</span><div className="gold-orbit"/></div></div>
+          <div className="difference-visual" data-reveal><div className="difference-photo"><img src="/marcelo-por-que-nos.png" alt="Marcelo Barros durante uma reunião estratégica"/><span>ESTRATÉGIA EM MOVIMENTO</span></div></div>
           <div className="difference-copy" data-reveal><div className="section-label"><span>03</span> POR QUE NÓS</div><h2>Excelência<br/>em cada <em>detalhe.</em></h2><p>Não acreditamos em soluções genéricas. Combinamos profundidade técnica, clareza na comunicação e presença constante em cada etapa.</p><ul><li><span>01</span><div><strong>Atendimento próximo</strong><small>Você acompanha e entende cada movimento.</small></div></li><li><span>02</span><div><strong>Estratégia sob medida</strong><small>Cada contexto recebe uma abordagem única.</small></div></li><li><span>03</span><div><strong>Compromisso com resultados</strong><small>Rigor, agilidade e foco no que importa.</small></div></li></ul></div>
         </section>
 
         <section className="team" id="equipe">
           <div className="team-intro" data-reveal><div className="section-label light"><span>04</span> QUEM SOMOS</div><h2>Duas trajetórias.<br/>Uma mesma<br/><em>visão de futuro.</em></h2><p>Marcelo Barros & Advogados Associados nasce da união entre profundidade técnica, atendimento humano e uma forma contemporânea de exercer a advocacia. Trabalhamos próximos de cada cliente para transformar desafios jurídicos em decisões seguras.</p></div>
-          <div className="lawyers-grid">
-            <article className="lawyer-card" data-reveal><div className="lawyer-photo"><img src="/marcelo-barros.png" alt="Retrato do advogado Marcelo Barros"/><span>01</span></div><div className="lawyer-info"><small>SÓCIO FUNDADOR</small><h3>Marcelo<br/>Barros</h3><p>Atuação estratégica, visão de negócios e proximidade para conduzir decisões jurídicas de alta relevância.</p><a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer" aria-label="Instagram de Marcelo Barros">@marcelobarros.adv <span>↗</span></a></div></article>
-            <article className="lawyer-card reverse" data-reveal><div className="lawyer-photo"><img src="/natalia-mesquita.jpg" alt="Retrato da advogada Natália Mesquita"/><span>02</span></div><div className="lawyer-info"><small>ADVOGADA ASSOCIADA</small><h3>Natália<br/>Mesquita</h3><p>Escuta atenta, precisão técnica e sensibilidade para construir soluções jurídicas personalizadas.</p><a href="https://www.instagram.com/nataliamesquita.adv/" target="_blank" rel="noreferrer" aria-label="Instagram de Natália Mesquita">@nataliamesquita.adv <span>↗</span></a></div></article>
+          <div className="team-carousel" data-reveal>
+            <div className="team-controls"><span><b>0{activeLawyer + 1}</b> / 02</span><div><button onClick={() => showLawyer(activeLawyer - 1)} aria-label="Advogado anterior">←</button><button onClick={() => showLawyer(activeLawyer + 1)} aria-label="Próximo advogado">→</button></div></div>
+            <div className="team-slider" ref={teamSlider} onScroll={(event) => setActiveLawyer(Math.round(event.currentTarget.scrollLeft / event.currentTarget.clientWidth))}>
+              <article className="profile-slide"><div className="profile-photo"><img src="/marcelo-barros.png" alt="Retrato do advogado Marcelo Barros"/><span>01</span></div><div className="profile-content"><small>SÓCIO FUNDADOR</small><h3>Marcelo<br/>Barros</h3><div className="profile-meta"><span>OAB/CE <b>Nº a confirmar</b></span><span>Direito Empresarial<br/>e Estratégia Jurídica</span></div><p>Advogado com atuação orientada à construção de soluções jurídicas seguras e conectadas à realidade de cada cliente. À frente do escritório, Marcelo une visão de negócios, análise de riscos e proximidade para conduzir demandas de alta relevância com clareza e precisão.</p><blockquote>“A melhor estratégia jurídica é aquela que protege o presente sem perder de vista o futuro.”</blockquote><a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv <span>↗</span></a></div></article>
+              <article className="profile-slide"><div className="profile-photo"><img src="/natalia-mesquita.jpg" alt="Retrato da advogada Natália Mesquita"/><span>02</span></div><div className="profile-content"><small>ADVOGADA ASSOCIADA</small><h3>Natália<br/>Mesquita</h3><div className="profile-meta"><span>OAB/CE <b>Nº a confirmar</b></span><span>Direito Civil<br/>e Atendimento Consultivo</span></div><p>Advogada dedicada a transformar questões complexas em caminhos claros e responsáveis. Natália combina escuta atenta, sensibilidade e precisão técnica para desenvolver soluções personalizadas, mantendo o cliente informado e seguro em todas as etapas.</p><blockquote>“Ouvir com atenção é o primeiro passo para construir uma solução verdadeiramente eficaz.”</blockquote><a href="https://www.instagram.com/nataliamesquita.adv/" target="_blank" rel="noreferrer">@nataliamesquita.adv <span>↗</span></a></div></article>
+            </div>
+            <div className="team-dots"><button className={activeLawyer === 0 ? "active" : ""} onClick={() => showLawyer(0)} aria-label="Ver Marcelo Barros"/><button className={activeLawyer === 1 ? "active" : ""} onClick={() => showLawyer(1)} aria-label="Ver Natália Mesquita"/></div>
           </div>
         </section>
 
