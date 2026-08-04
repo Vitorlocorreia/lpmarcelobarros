@@ -111,6 +111,8 @@ export default function Home() {
       <header className="topbar">
         <button className="brand" onClick={() => go("#inicio")} aria-label="Voltar ao início"><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button>
         
+        <div className={menuOpen ? "nav-backdrop open" : "nav-backdrop"} onClick={() => setMenuOpen(false)} />
+
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navegação principal">
           <div className="mobile-nav-header">
             <button className="brand" onClick={() => { setMenuOpen(false); go("#inicio"); }} aria-label="Voltar ao início">
