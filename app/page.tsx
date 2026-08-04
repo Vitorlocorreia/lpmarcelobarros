@@ -192,7 +192,7 @@ export default function Home() {
           <div className="journey-steps"><article data-reveal><span>01</span><h3>Escutamos</h3><p>Entendemos o contexto, as prioridades e tudo o que está em jogo.</p></article><article data-reveal><span>02</span><h3>Planejamos</h3><p>Desenhamos uma estratégia clara, responsável e sob medida.</p></article><article data-reveal><span>03</span><h3>Conduzimos</h3><p>Executamos cada movimento com rigor e comunicação constante.</p></article><article data-reveal><span>04</span><h3>Evoluímos</h3><p>Acompanhamos resultados e antecipamos os próximos cenários.</p></article></div>
         </section>
 
-        <section className="office" data-reveal><div className="office-map"><div className="map-lines"/><span className="map-pin">MB</span><small>03°43' S<br/>38°32' W</small></div><div className="office-copy"><div className="section-label"><span>06</span> ONDE ESTAMOS</div><h2>Fortaleza,<br/><em>Ceará.</em></h2><p>Um espaço pensado para receber, ouvir e construir decisões importantes com a tranquilidade que elas merecem.</p><address>Av. Exemplo, 1000 — Aldeota<br/>Fortaleza — CE</address><a href="#contato">Como chegar ↗</a></div></section>
+        <section className="office" data-reveal><div className="office-map"><div className="map-lines"/><span className="map-pin">MB</span><small>08°07' S<br/>34°53' W</small></div><div className="office-copy"><div className="section-label"><span>06</span> ONDE ESTAMOS</div><h2>Recife,<br/><em>Pernambuco.</em></h2><p>Um espaço pensado para receber, ouvir e construir decisões importantes com a tranquilidade que elas merecem.</p><address>Rua Bruno Veloso, 1280, Sala 609<br/>Edf. Grand Tower Shopping — Boa Viagem, Recife — PE</address><a href="https://maps.google.com/?q=Rua+Bruno+Veloso+1280+Recife" target="_blank" rel="noreferrer">Como chegar no Google Maps ↗</a></div></section>
 
         <section className="contact" id="contato">
           <div className="contact-glow" />
@@ -201,7 +201,7 @@ export default function Home() {
             <h2>Clareza para<br/>o que vem <em>agora.</em></h2>
             <p>Quando existe uma decisão importante, o primeiro passo não é uma resposta pronta. É entender o contexto, os riscos e o que precisa ser protegido.</p>
             <div className="contact-signature">
-              <span>ATENDIMENTO EM FORTALEZA E ONLINE</span>
+              <span>ATENDIMENTO EM RECIFE E ONLINE</span>
               <span>SIGILO DESDE O PRIMEIRO CONTATO</span>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function Home() {
                 className={`diagnostic-btn ${selectedProfile === "patrimonial" ? "active" : ""}`}
                 onClick={() => setSelectedProfile("patrimonial")}
               >
-                <span>Proteção Patrimonial</span>
+                <span>Proteção Patrimonial & Família</span>
                 <i>{selectedProfile === "patrimonial" ? "✓" : "→"}</i>
               </button>
               <button 
@@ -235,15 +235,15 @@ export default function Home() {
                 <i>{selectedProfile === "litigio" ? "✓" : "→"}</i>
               </button>
               <button 
-                className={`diagnostic-btn ${selectedProfile === "consulta" ? "active" : ""}`}
-                onClick={() => setSelectedProfile("consulta")}
+                className={`diagnostic-btn ${selectedProfile === "outro" ? "active" : ""}`}
+                onClick={() => setSelectedProfile("outro")}
               >
-                <span>Consulta Estratégica</span>
-                <i>{selectedProfile === "consulta" ? "✓" : "→"}</i>
+                <span>Outros Assuntos Jurídicos</span>
+                <i>{selectedProfile === "outro" ? "✓" : "→"}</i>
               </button>
             </div>
 
-            <span className="diagnostic-group-label">2. PREFERÊNCIA DE FORMATO</span>
+            <span className="diagnostic-group-label">2. PREFERÊNCIA DE ATENDIMENTO:</span>
             <div className="diagnostic-options">
               <button 
                 className={`diagnostic-btn ${selectedFormat === "online" ? "active" : ""}`}
@@ -256,7 +256,7 @@ export default function Home() {
                 className={`diagnostic-btn ${selectedFormat === "presencial" ? "active" : ""}`}
                 onClick={() => setSelectedFormat("presencial")}
               >
-                <span>🏛️ Presencial em Fortaleza</span>
+                <span>🏛️ Presencial em Recife (Edf. Grand Tower)</span>
                 <i>{selectedFormat === "presencial" ? "✓" : "→"}</i>
               </button>
             </div>
@@ -268,7 +268,7 @@ export default function Home() {
           </div>
 
           <div className="contact-details" data-reveal>
-            <span>Fortaleza, Ceará</span>
+            <span>Recife, Pernambuco</span>
             <span>contato@marcelobarros.adv.br</span>
             <span>Seg — Sex, 08h às 18h</span>
           </div>
