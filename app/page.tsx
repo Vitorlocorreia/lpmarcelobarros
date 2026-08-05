@@ -43,6 +43,27 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeLawyer, setActiveLawyer] = useState(0);
   const [activePractice, setActivePractice] = useState<string | null>(null);
+  const [hiddenHeader, setHiddenHeader] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 60) {
+        if (currentScrollY > lastScrollY.current + 6) {
+          setHiddenHeader(true);
+        } else if (currentScrollY < lastScrollY.current - 6) {
+          setHiddenHeader(false);
+        }
+      } else {
+        setHiddenHeader(false);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -80,7 +101,7 @@ export default function Home() {
   return (
     <div ref={root} className="site-shell">
       <div className="loader" aria-hidden="true"><div className="loader-mark">MB</div><div className="loader-line" /></div>
-      <header className="topbar">
+      <header className={`topbar ${hiddenHeader ? "hidden-scroll" : ""}`}>
         <button className="brand" onClick={() => go("#inicio")} aria-label="Voltar ao início"><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button>
         
         <div className={menuOpen ? "nav-backdrop open" : "nav-backdrop"} onClick={() => setMenuOpen(false)} />
@@ -114,10 +135,6 @@ export default function Home() {
           </div>
         </nav>
 
-        <a className="button black nav-cta" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
-          Fale conosco
-          <svg className="wpp-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.299.432 2.504 1.162 3.475l-.763 2.787 2.857-.749c.937.643 2.062 1.022 3.273 1.023h.003c3.18 0 5.767-2.587 5.768-5.766.001-3.181-2.585-5.767-5.766-5.767zm3.366 8.163c-.145.408-.846.777-1.173.818-.313.039-.714.174-2.383-.518-2.02-.838-3.328-2.883-3.429-3.017-.101-.134-.82-1.092-.82-2.083 0-.991.518-1.479.702-1.684.184-.205.402-.256.536-.256.134 0 .268.002.385.007.123.006.29-.046.452.344.167.402.569 1.385.619 1.486.05.101.084.218.017.352-.067.134-.101.218-.201.335-.1.117-.211.261-.301.35-.101.101-.206.211-.089.412.117.201.522.862 1.121 1.396.771.688 1.42.903 1.621 1.003.201.101.318.084.435-.05.117-.134.502-.586.636-.787.134-.201.268-.167.452-.101.184.067 1.173.553 1.374.654.201.101.335.151.385.235.05.084.05.491-.095.899z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.986-1.309C8.423 21.536 10.151 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.634 0-3.166-.43-4.498-1.18l-.322-.183-2.966.778.791-2.894-.201-.321C3.996 14.869 3.5 13.487 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/></svg>
-        </a>
         <button className={menuOpen ? "menu-toggle open" : "menu-toggle"} onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}><i/><i/></button>
       </header>
 

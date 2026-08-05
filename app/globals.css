@@ -68,9 +68,10 @@
 .menu-toggle.open i:last-child { transform: translateY(-4px) rotate(-45deg); background: var(--gold); }
 
 @media(max-width:900px){
-  .topbar { height: 76px; padding: 0 22px; background: rgba(8, 8, 7, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .topbar { height: 76px; padding: 0 22px; background: rgba(8, 8, 7, 0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.08); transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease; }
+  .topbar.hidden-scroll { transform: translateY(-100%); }
   .menu-toggle { display: block; margin-left: auto; }
-  .nav-cta { display: none; }
+  .nav-cta { display: none !important; }
 
   /* Backdrop overlay for closing drawer when clicking outside */
   .nav-backdrop {
