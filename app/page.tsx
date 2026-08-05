@@ -253,7 +253,7 @@ export default function Home() {
                 <a className="route-btn waze" href="https://waze.com/ul?q=Rua%20Bruno%20Veloso%201280%20Recife&navigate=yes" target="_blank" rel="noreferrer">
                   <span>🚗 Waze</span> <i>↗</i>
                 </a>
-                <a className="route-btn uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=Rua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE" target="_blank" rel="noreferrer">
+                <a className="route-btn uber" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=-8.1170068&dropoff[longitude]=-34.8988636&dropoff[nickname]=Edf.%20Grand%20Tower%20Shopping&dropoff[formatted_address]=Rua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE" target="_blank" rel="noreferrer">
                   <span>🚖 Uber</span> <i>↗</i>
                 </a>
               </div>
