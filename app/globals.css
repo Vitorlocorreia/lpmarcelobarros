@@ -282,12 +282,12 @@
 @media(max-width:900px){.brand-logo{width:64px;height:64px}.team{padding:90px 24px 110px}.team-intro{grid-template-columns:1fr;margin-bottom:60px}.team-intro .section-label{margin-bottom:42px}.team-intro>p{margin-top:30px}.lawyers-grid{grid-template-columns:1fr;gap:75px}.lawyer-card.reverse{margin-top:0}.lawyer-photo{height:min(132vw,620px)}.footer-brand .brand-logo{width:96px;height:96px}}
 
 /* Why us portrait */
-.difference-visual{padding:4vw 0 4vw 6vw;position:relative;height:100%;min-height:500px;display:flex;align-items:center;justify-content:center;background:#f0ede6}
-.difference-photo{width:100%;height:100%;max-height:620px;position:relative;overflow:hidden;background:#f0ede6;border:0;border-radius:0;box-shadow:none;display:flex;align-items:center;justify-content:center}
-.difference-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,7,6,.22),transparent 45%);pointer-events:none}
-.difference-photo img{width:100%;height:100%;object-fit:contain;object-position:center;filter:saturate(.95);transition:transform 1s cubic-bezier(.2,.8,.2,1);display:block}
-.difference-photo:hover img{transform:scale(1.02)}
-.difference-photo>span{position:absolute;z-index:2;left:24px;bottom:24px;color:#171714;font-size:8.5px;letter-spacing:.25em;border-left:2px solid var(--gold);padding-left:14px;background:rgba(240,237,230,0.85);padding-top:5px;padding-bottom:5px;padding-right:14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.difference-visual{padding:0;position:relative;height:100%;min-height:100%;display:block;background:transparent}
+.difference-photo{width:100%;height:100%;min-height:100%;position:relative;overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none;display:block}
+.difference-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(7,7,6,.45),transparent 42%);pointer-events:none}
+.difference-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.9);transition:transform 1s cubic-bezier(.2,.8,.2,1);display:block}
+.difference-photo:hover img{transform:scale(1.03)}
+.difference-photo>span{position:absolute;z-index:2;left:42px;bottom:38px;color:#f2eee6;font-size:8.5px;letter-spacing:.25em;border-left:1px solid var(--gold);padding-left:14px}
 
 @media(max-width:900px){
   .difference-visual{padding:24px 24px 0;display:block;background:transparent}
