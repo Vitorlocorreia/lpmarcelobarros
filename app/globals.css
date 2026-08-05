@@ -347,10 +347,10 @@
     justify-content:space-between;
     background:transparent;
   }
-  .hero-kicker{font-size:10px;letter-spacing:.22em;margin-bottom:10px}
-  .hero-title{font-size:clamp(34px,9.2vw,46px);line-height:1.04;letter-spacing:-.045em}
+  .hero-kicker{font-size:11px;letter-spacing:.25em;margin-bottom:12px}
+  .hero-title{font-size:clamp(40px,10.8vw,56px);line-height:1.02;letter-spacing:-.045em}
   .hero-title em{color:var(--gold)}
-  .hero-copy{font-size:13.5px;line-height:1.6;color:#d8d4cc;margin:12px 0 16px;max-width:100%}
+  .hero-copy{font-size:15.5px;line-height:1.6;color:#e6e2da;margin:16px 0 22px;max-width:100%;font-weight:400}
   .hero-actions{
     position:relative;
     z-index:4;
@@ -363,18 +363,19 @@
   }
   .hero-actions .button{
     width:100%;
-    min-height:52px;
-    display:flex;
+    min-height:56px;
+    display:inline-flex;
     align-items:center;
     justify-content:center;
+    gap:10px;
     font-family:"Manrope",sans-serif;
-    font-weight:800;
-    font-size:13px;
+    font-weight:700;
+    font-size:14px;
     letter-spacing:.05em;
     border-radius:4px;
     text-align:center;
   }
-  .hero-actions .button span{float:none;margin-left:8px}
+  .hero-actions .button span{float:none;margin-left:0}
   .hero-actions .button.gold{
     position:relative;
     overflow:hidden;
