@@ -49,14 +49,18 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > 60) {
-        if (currentScrollY > lastScrollY.current + 6) {
-          setHiddenHeader(true);
-        } else if (currentScrollY < lastScrollY.current - 6) {
-          setHiddenHeader(false);
+      if (window.innerWidth <= 900) {
+        if (currentScrollY > 70) {
+          if (currentScrollY > lastScrollY.current + 5) {
+            gsap.to(".topbar", { yPercent: -100, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+          } else if (currentScrollY < lastScrollY.current - 5) {
+            gsap.to(".topbar", { yPercent: 0, duration: 0.35, ease: "power2.out", overwrite: "auto" });
+          }
+        } else {
+          gsap.to(".topbar", { yPercent: 0, duration: 0.35, ease: "power2.out", overwrite: "auto" });
         }
       } else {
-        setHiddenHeader(false);
+        gsap.set(".topbar", { yPercent: 0 });
       }
       lastScrollY.current = currentScrollY;
     };
@@ -77,7 +81,7 @@ export default function Home() {
         .from(".hero-title .line span", { yPercent: 110, duration: .95, stagger: .1 }, "-=.55")
         .from(".hero-copy, .hero-actions", { y: 25, opacity: 0, duration: .75, stagger: .12 }, "-=.55")
         .from(".hero-people", { scale: 1.08, opacity: 0, duration: 1.25 }, "-=1.15")
-        .from(".topbar", { y: -24, opacity: 0, duration: .7 }, "-=.9");
+        .from(".topbar", { y: -24, opacity: 0, duration: .7, onComplete: () => { gsap.set(".topbar", { clearProps: "transform" }); } }, "-=.9");
 
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 84%" } });
