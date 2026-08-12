@@ -4,6 +4,41 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+const ArrowUpRight = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle" }}>
+    <line x1="2" y1="10" x2="10" y2="2"/>
+    <polyline points="4 2 10 2 10 8"/>
+  </svg>
+);
+
+const ArrowDown = () => (
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle" }}>
+    <line x1="6" y1="2" x2="6" y2="10"/>
+    <polyline points="2 6 6 10 10 6"/>
+  </svg>
+);
+
+const ArrowLeft = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle" }}>
+    <line x1="11" y1="7" x2="3" y2="7"/>
+    <polyline points="7 3 3 7 7 11"/>
+  </svg>
+);
+
+const ArrowRight = () => (
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "middle" }}>
+    <line x1="3" y1="7" x2="11" y2="7"/>
+    <polyline points="7 3 11 7 7 11"/>
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" style={{ display: "inline-block", verticalAlign: "middle" }}>
+    <line x1="3" y1="3" x2="13" y2="13"/>
+    <line x1="13" y1="3" x2="3" y2="13"/>
+  </svg>
+);
+
 const practices = [
   {
     n: "01",
@@ -115,16 +150,16 @@ export default function Home() {
             <button className="brand" onClick={() => { setMenuOpen(false); go("#inicio"); }} aria-label="Voltar ao início">
               <img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" />
             </button>
-            <button className="mobile-nav-close" onClick={() => setMenuOpen(false)} aria-label="Fechar menu">✕</button>
+            <button className="mobile-nav-close" onClick={() => setMenuOpen(false)} aria-label="Fechar menu"><CloseIcon /></button>
           </div>
 
           <div className="mobile-nav-links">
-            <button onClick={() => { setMenuOpen(false); go("#inicio"); }}><span>01</span> Início <i>↗</i></button>
-            <button onClick={() => { setMenuOpen(false); go("#sobre"); }}><span>02</span> Sobre <i>↗</i></button>
-            <button onClick={() => { setMenuOpen(false); go("#atuacao"); }}><span>03</span> Atuação <i>↗</i></button>
-            <button onClick={() => { setMenuOpen(false); go("#diferenciais"); }}><span>04</span> Diferenciais <i>↗</i></button>
-            <button onClick={() => { setMenuOpen(false); go("#equipe"); }}><span>05</span> Equipe <i>↗</i></button>
-            <button onClick={() => { setMenuOpen(false); go("#onde-estamos"); }}><span>06</span> Localização <i>↗</i></button>
+            <button onClick={() => { setMenuOpen(false); go("#inicio"); }}><span>01</span> Início <i><ArrowUpRight /></i></button>
+            <button onClick={() => { setMenuOpen(false); go("#sobre"); }}><span>02</span> Sobre <i><ArrowUpRight /></i></button>
+            <button onClick={() => { setMenuOpen(false); go("#atuacao"); }}><span>03</span> Atuação <i><ArrowUpRight /></i></button>
+            <button onClick={() => { setMenuOpen(false); go("#diferenciais"); }}><span>04</span> Diferenciais <i><ArrowUpRight /></i></button>
+            <button onClick={() => { setMenuOpen(false); go("#equipe"); }}><span>05</span> Equipe <i><ArrowUpRight /></i></button>
+            <button onClick={() => { setMenuOpen(false); go("#onde-estamos"); }}><span>06</span> Localização <i><ArrowUpRight /></i></button>
           </div>
 
           <div className="mobile-nav-footer">
@@ -136,7 +171,7 @@ export default function Home() {
             </a>
             <div className="mobile-nav-info">
               <p>Rua Bruno Veloso, 1280, Sala 609<br/>Edf. Grand Tower Shopping — Recife - PE</p>
-              <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv ↗</a>
+              <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv <ArrowUpRight /></a>
             </div>
           </div>
         </nav>
@@ -186,7 +221,7 @@ export default function Home() {
                 <span className="practice-number">{item.n}</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <span className="circle-arrow">{activePractice === item.n ? "↓" : "↗"}</span>
+                <span className="circle-arrow">{activePractice === item.n ? <ArrowDown /> : <ArrowUpRight />}</span>
                 <div className="practice-details">
                   <div className="practice-tags">
                     {item.tags.map((tag) => <span key={tag} className="practice-tag">{tag}</span>)}
@@ -205,10 +240,10 @@ export default function Home() {
         <section className="team" id="equipe">
           <div className="team-intro" data-reveal><div className="section-label light"><span>04</span> QUEM SOMOS</div><h2>Duas trajetórias.<br/>Uma mesma<br/><em>visão de futuro.</em></h2><p>Unimos profundidade técnica, visão de negócios e atendimento humanizado para conduzir demandas jurídicas com máxima precisão.</p></div>
           <div className="team-carousel" data-reveal>
-            <div className="team-controls"><span><b>0{activeLawyer + 1}</b> / 02</span><div><button onClick={() => showLawyer(activeLawyer - 1)} aria-label="Advogado anterior">←</button><button onClick={() => showLawyer(activeLawyer + 1)} aria-label="Próximo advogado">→</button></div></div>
+            <div className="team-controls"><span><b>0{activeLawyer + 1}</b> / 02</span><div><button onClick={() => showLawyer(activeLawyer - 1)} aria-label="Advogado anterior"><ArrowLeft /></button><button onClick={() => showLawyer(activeLawyer + 1)} aria-label="Próximo advogado"><ArrowRight /></button></div></div>
             <div className="team-slider" ref={teamSlider} onScroll={(event) => setActiveLawyer(Math.round(event.currentTarget.scrollLeft / event.currentTarget.clientWidth))}>
-              <article className="profile-slide"><div className="profile-photo"><img src="/marcelo-barros.png" alt="Retrato do advogado Marcelo Barros"/><span>01</span></div><div className="profile-content"><small>SÓCIO FUNDADOR</small><h3>Marcelo<br/>Barros</h3><div className="profile-meta"><span>OAB/PE <b>35.561</b></span><span>Empresarial, Societário<br/>e Imobiliário</span></div><p>Advogado com atuação focada em gestão de riscos, contratos e reorganizações estratégicas. Une visão jurídica e conhecimento de mercado para orientar decisões de alto impacto.</p><blockquote>“A melhor estratégia jurídica é aquela que protege o presente e viabiliza o futuro.”</blockquote><a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv <span>↗</span></a></div></article>
-              <article className="profile-slide"><div className="profile-photo"><img src="/natalia-mesquita.jpg" alt="Retrato da advogada Natália Xavier"/><span>02</span></div><div className="profile-content"><small>ADVOGADA ASSOCIADA</small><h3>Natália<br/>Xavier</h3><div className="profile-meta"><span>OAB/PE <b>54.018</b></span><span>Cível<br/>e Imobiliário</span></div><p>Advogada dedicada ao consultivo e contencioso cível e imobiliário. Atua com precisão técnica e escuta atenta para entregar soluções jurídicas sólidas e personalizadas.</p><blockquote>“Precisão técnica e escuta ativa são a base de uma defesa eficaz.”</blockquote><a href="https://www.instagram.com/nataliamesquita.adv/" target="_blank" rel="noreferrer">@nataliamesquita.adv <span>↗</span></a></div></article>
+              <article className="profile-slide"><div className="profile-photo"><img src="/marcelo-barros.png" alt="Retrato do advogado Marcelo Barros"/><span>01</span></div><div className="profile-content"><small>SÓCIO FUNDADOR</small><h3>Marcelo<br/>Barros</h3><div className="profile-meta"><span>OAB/PE <b>35.561</b></span><span>Empresarial, Societário<br/>e Imobiliário</span></div><p>Advogado com atuação focada em gestão de riscos, contratos e reorganizações estratégicas. Une visão jurídica e conhecimento de mercado para orientar decisões de alto impacto.</p><blockquote>“A melhor estratégia jurídica é aquela que protege o presente e viabiliza o futuro.”</blockquote><a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv <span><ArrowUpRight /></span></a></div></article>
+              <article className="profile-slide"><div className="profile-photo"><img src="/natalia-mesquita.jpg" alt="Retrato da advogada Natália Xavier"/><span>02</span></div><div className="profile-content"><small>ADVOGADA ASSOCIADA</small><h3>Natália<br/>Xavier</h3><div className="profile-meta"><span>OAB/PE <b>54.018</b></span><span>Cível<br/>e Imobiliário</span></div><p>Advogada dedicada ao consultivo e contencioso cível e imobiliário. Atua com precisão técnica e escuta atenta para entregar soluções jurídicas sólidas e personalizadas.</p><blockquote>“Precisão técnica e escuta ativa são a base de uma defesa eficaz.”</blockquote><a href="https://www.instagram.com/nataliamesquita.adv/" target="_blank" rel="noreferrer">@nataliamesquita.adv <span><ArrowUpRight /></span></a></div></article>
             </div>
             <div className="team-dots"><button className={activeLawyer === 0 ? "active" : ""} onClick={() => showLawyer(0)} aria-label="Ver Marcelo Barros"/><button className={activeLawyer === 1 ? "active" : ""} onClick={() => showLawyer(1)} aria-label="Ver Natália Xavier"/></div>
           </div>
@@ -243,13 +278,13 @@ export default function Home() {
               <span className="routes-title">ABRIR ROTA DIRETA NO SEU APP:</span>
               <div className="routes-buttons">
                 <a className="route-btn maps" href="https://maps.google.com/?q=Rua+Bruno+Veloso+1280+Recife" target="_blank" rel="noreferrer">
-                  <span>Google Maps</span> <i>↗</i>
+                  <span>Google Maps</span> <i><ArrowUpRight /></i>
                 </a>
                 <a className="route-btn waze" href="https://waze.com/ul?q=Rua%20Bruno%20Veloso%201280%20Recife&navigate=yes" target="_blank" rel="noreferrer">
-                  <span>Waze</span> <i>↗</i>
+                  <span>Waze</span> <i><ArrowUpRight /></i>
                 </a>
                 <a className="route-btn uber" href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[latitude]=-8.1170068&dropoff[longitude]=-34.8988636&dropoff[nickname]=Edf.%20Grand%20Tower%20Shopping&dropoff[formatted_address]=Rua%20Bruno%20Veloso%2C%201280%20-%20Boa%20Viagem%2C%20Recife%20-%20PE" target="_blank" rel="noreferrer">
-                  <span>Uber</span> <i>↗</i>
+                  <span>Uber</span> <i><ArrowUpRight /></i>
                 </a>
               </div>
             </div>
