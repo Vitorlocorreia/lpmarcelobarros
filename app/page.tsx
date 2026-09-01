@@ -43,33 +43,45 @@ const practices = [
   {
     n: "01",
     title: "Direito Imobiliário",
-    text: "Segurança jurídica em transações, contratos e regularização de imóveis.",
-    tags: ["Negócios Imobiliários", "Due Diligence", "Regularização Patrimonial", "Contratos de Compra e Venda"]
+    subtitle: "Segurança em cada etapa da negociação imobiliária.",
+    description: "O patrimônio imobiliário exige mais do que a assinatura de um contrato: exige análise prévia, estrutura documental correta e acompanhamento até o registro. Atuamos preventiva e contenciosamente para que a aquisição, a venda, a locação ou a regularização de um imóvel se concretize sem passivos ocultos e sem surpresas.",
+    services: [
+      "Due diligence imobiliária e análise de risco na aquisição",
+      "Elaboração e revisão de contratos de compra e venda, permuta, promessa e locação",
+      "Regularização de imóveis, retificação de registro e usucapião judicial e extrajudicial",
+      "Distratos, rescisões e ações contra construtoras e incorporadoras",
+      "Assessoria a incorporações, loteamentos e condomínios",
+      "Ações possessórias, adjudicação compulsória e cobrança de encargos locatícios"
+    ]
   },
   {
     n: "02",
-    title: "Direito Empresarial",
-    text: "Assessoria estratégica para gestão de riscos e estrutura de negócios.",
-    tags: ["Contratos Corporativos", "Gestão de Riscos", "Compliance", "Consultoria Preventiva"]
+    title: "Direito Societário",
+    subtitle: "A estrutura jurídica certa para o negócio crescer.",
+    description: "Cada empresa tem uma composição, um estágio e um projeto de futuro próprios. Estruturamos sociedades sob medida, antecipamos conflitos entre sócios e damos forma jurídica às decisões estratégicas, do primeiro contrato social à reorganização de grupos empresariais.",
+    services: [
+      "Constituição de sociedades e elaboração de contratos e estatutos sociais",
+      "Acordos de sócios e quotistas, com regras de governança, saída e sucessão",
+      "Reorganizações societárias: cisão, fusão, incorporação e transformação",
+      "Constituição de holdings patrimoniais e empresariais",
+      "Dissolução parcial, exclusão de sócio e apuração de haveres",
+      "Contratos empresariais, parcerias e assessoria societária permanente"
+    ]
   },
   {
     n: "03",
-    title: "Direito Societário",
-    text: "Estruturação societária, reorganizações e governança de empresas.",
-    tags: ["Reestruturação Societária", "Acordo de Sócios", "Governança", "Planejamento"]
-  },
-  {
-    n: "04",
-    title: "Direito Cível",
-    text: "Soluções técnicas para contratos, relações jurídicas e proteção patrimonial.",
-    tags: ["Planejamento Patrimonial", "Contratos de Alto Valor", "Responsabilidade Civil", "Resolução de Conflitos"]
-  },
-  {
-    n: "05",
-    title: "Direito Trabalhista",
-    text: "Atuação consultiva e contenciosa focada em mitigação de riscos.",
-    tags: ["Advocacia Preventiva", "Defesa em Litígios", "Auditoria Trabalhista", "Adequação de Rotinas"]
-  },
+    title: "Direito das Sucessões",
+    subtitle: "Planejar em vida é proteger quem fica.",
+    description: "A transmissão do patrimônio pode ser um processo organizado ou um litígio de anos. Atuamos nas duas frentes: no planejamento sucessório que reduz custos, tempo e desgaste familiar, e na condução técnica de inventários e disputas entre herdeiros, sempre com atenção ao equilíbrio das relações envolvidas.",
+    services: [
+      "Planejamento sucessório e estruturação de holding familiar",
+      "Testamentos, doações com reserva de usufruto e cláusulas restritivas",
+      "Inventário e partilha judicial e extrajudicial",
+      "Arrolamento, sobrepartilha e habilitação de herdeiros",
+      "Ações de petição de herança, sonegados, colação e anulação de partilha",
+      "Regularização de bens e imóveis de espólio"
+    ]
+  }
 ];
 
 export default function Home() {
@@ -114,8 +126,8 @@ export default function Home() {
         .to(".loader", { yPercent: -100, duration: 1.05, ease: "power4.inOut" }, "+=.15")
         .from(".hero-kicker", { y: 24, opacity: 0, duration: .7 }, "-=.3")
         .from(".hero-title .line span", { yPercent: 110, duration: .95, stagger: .1 }, "-=.55")
-        .from(".hero-copy, .hero-actions", { y: 25, opacity: 0, duration: .75, stagger: .12 }, "-=.55")
-        .from(".hero-people", { scale: 1.08, opacity: 0, duration: 1.25 }, "-=1.15")
+        .from(".hero-copy, .hero-actions, .hero-badges", { y: 25, opacity: 0, duration: .75, stagger: .12 }, "-=.55")
+        .from(".hero-bg-img", { scale: 1.08, opacity: 0, duration: 1.3 }, "-=1.15")
         .from(".topbar", { y: -24, opacity: 0, duration: .7, onComplete: () => { gsap.set(".topbar", { clearProps: "transform" }); } }, "-=.9");
 
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
@@ -163,7 +175,7 @@ export default function Home() {
           </div>
 
           <div className="mobile-nav-footer">
-            <a className="button black mobile-nav-cta" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
+            <a className="button gold mobile-nav-cta" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
               Fale conosco
               <svg className="wpp-icon" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
                 <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
@@ -181,21 +193,45 @@ export default function Home() {
 
       <main>
         <section className="hero" id="inicio">
-          <div className="hero-grain" />
-          <picture className="hero-picture"><source media="(max-width: 900px)" srcSet="/hero-mobile-real.png"/><img className="hero-people" src="/hero-desktop.png" alt="Marcelo Barros e Natália Xavier em ambiente profissional" /></picture>
+          <div className="hero-bg-wrapper">
+            <picture className="hero-picture">
+              <source media="(max-width: 900px)" srcSet="/hero-mobile-extended.jpg" />
+              <img
+                className="hero-bg-img"
+                src="/hero-desktop-extended.jpg"
+                alt="Marcelo Barros e Natália Xavier - Marcelo Barros & Advogados Associados"
+              />
+            </picture>
+          </div>
+
           <div className="hero-content">
             <p className="hero-kicker"><span /> ADVOCACIA ESTRATÉGICA</p>
-            <h1 className="hero-title"><span className="line"><span>Soluções jurídicas</span></span><span className="line"><span>para decisões <em>seguras.</em></span></span></h1>
+            <h1 className="hero-title">
+              <span className="line"><span>Soluções jurídicas</span></span>
+              <span className="line"><span>para decisões <em>seguras.</em></span></span>
+            </h1>
             <p className="hero-copy">Atendimento direto, alta precisão técnica e compromisso com o resultado.</p>
             <div className="hero-actions">
-              <a className="button black hero-cta-btn" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
+              <a className="button gold hero-cta-btn" href={getWhatsAppUrl()} target="_blank" rel="noreferrer">
                 Fale conosco
                 <svg className="wpp-icon" viewBox="0 0 448 512" width="18" height="18" fill="currentColor">
                   <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
                 </svg>
               </a>
             </div>
+            <div className="hero-badges">
+              <div className="hero-badge-item">
+                <strong>OAB/PE</strong>
+                <span>Marcelo Barros 35.561</span>
+              </div>
+              <div className="hero-badge-divider" />
+              <div className="hero-badge-item">
+                <strong>OAB/PE</strong>
+                <span>Natália Xavier 54.018</span>
+              </div>
+            </div>
           </div>
+
           <div className="scroll-cue"><span>SCROLL</span><i /></div>
         </section>
 
@@ -209,26 +245,57 @@ export default function Home() {
 
         <section className="practice" id="atuacao">
           <div className="section-label light" data-reveal><span>02</span> ÁREAS DE ATUAÇÃO</div>
-          <div className="practice-heading" data-reveal><h2>Expertise que<br/><em>move decisões.</em></h2><p>Clique nas áreas abaixo para explorar detalhes da nossa atuação estratégica.</p></div>
+          <div className="practice-heading" data-reveal>
+            <h2>Expertise que<br/><em>move decisões.</em></h2>
+            <p>Atuação preventiva e contenciosa nas disciplinas essenciais para a proteção do patrimônio e dos negócios.</p>
+          </div>
           <div className="practice-list">
-            {practices.map((item) => (
-              <article 
-                key={item.n} 
-                className={`practice-item ${activePractice === item.n ? "active" : ""}`} 
-                onClick={() => setActivePractice(activePractice === item.n ? null : item.n)}
-                data-reveal
-              >
-                <span className="practice-number">{item.n}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <span className="circle-arrow">{activePractice === item.n ? <ArrowDown /> : <ArrowUpRight />}</span>
-                <div className="practice-details">
-                  <div className="practice-tags">
-                    {item.tags.map((tag) => <span key={tag} className="practice-tag">{tag}</span>)}
+            {practices.map((item) => {
+              const isOpen = activePractice === item.n;
+              return (
+                <article 
+                  key={item.n} 
+                  className={`practice-item ${isOpen ? "active" : ""}`} 
+                  onClick={() => setActivePractice(isOpen ? null : item.n)}
+                  data-reveal
+                >
+                  <div className="practice-header">
+                    <span className="practice-number">{item.n}</span>
+                    <div className="practice-titles">
+                      <h3>{item.title}</h3>
+                      <span className="practice-subtitle">{item.subtitle}</span>
+                    </div>
+                    <span className="circle-arrow" aria-label={isOpen ? "Recolher detalhes" : "Ver serviços"}>
+                      {isOpen ? <ArrowDown /> : <ArrowUpRight />}
+                    </span>
                   </div>
-                </div>
-              </article>
-            ))}
+                  
+                  <div className="practice-details">
+                    <p className="practice-desc">{item.description}</p>
+                    <div className="practice-services-block">
+                      <span className="practice-services-label">Principais serviços:</span>
+                      <ul className="practice-services-list">
+                        {item.services.map((srv, idx) => (
+                          <li key={idx}>
+                            <i>✦</i> <span>{srv}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="practice-closing" data-reveal>
+            <div className="practice-closing-header">
+              <span className="practice-closing-badge">ADVOCACIA SOB MEDIDA</span>
+              <h3>Poucos clientes por vez, atenção integral a cada um.</h3>
+            </div>
+            <p>
+              Não trabalhamos com soluções padronizadas. Cada caso é conduzido a partir do estudo individual da situação patrimonial, familiar ou empresarial do cliente, com atendimento direto pelos sócios, comunicação clara sobre riscos e alternativas e acompanhamento próximo até a conclusão.
+            </p>
           </div>
         </section>
 
