@@ -6,29 +6,32 @@
 
 :root{--ink:#0b0b0a;--cream:#f1eee7;--gold:#d59b42;--muted:#a29d93;--line:rgba(255,255,255,.14)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--cream);font-family:"Manrope",sans-serif;overflow-x:hidden}button,a{font:inherit}.site-shell{overflow:hidden}.loader{position:fixed;inset:0;background:#080807;z-index:1000;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px}.loader-mark{font-family:"Libre Baskerville",serif;font-size:68px;letter-spacing:-2px;color:var(--gold);opacity:0;transform:scale(.8);font-weight:700}.loader-line{height:1px;width:120px;background:var(--gold);transform:scaleX(0)}
-.topbar{height:94px;position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;padding:0 4.7vw;border-bottom:1px solid rgba(255,255,255,.09)}.brand{display:flex;align-items:center;gap:13px;color:white;background:none;border:0;cursor:pointer;padding:0}.brand-monogram{font-family:"Libre Baskerville",serif;font-size:24px;letter-spacing:-1px;border-left:2px solid var(--gold);border-top:2px solid var(--gold);padding:0 7px 3px;font-weight:700}.brand-name{font:600 16px "Manrope",sans-serif;letter-spacing:-.01em;text-align:left}.brand-name small{display:block;color:#d7a45b;letter-spacing:.22em;font-size:7.5px;margin-top:3px;font-weight:700}
-.nav{display:flex;gap:34px;margin:auto}.nav button{background:none;border:0;color:#d6d2ca;font-size:13.5px;font-weight:500;cursor:pointer;transition:.3s;font-family:"Manrope",sans-serif}.nav button:hover{color:var(--gold)}.nav-cta{color:white;text-decoration:none;border:1px solid rgba(213,155,66,.55);padding:13px 19px;border-radius:4px;font-size:12px;font-weight:600;transition:.3s;font-family:"Manrope",sans-serif}.nav-cta:hover{background:var(--gold);color:#111}.nav-cta span{color:var(--gold);margin-right:7px}.menu-toggle{display:none;background:none;border:0;width:40px}.menu-toggle i{display:block;height:1px;background:white;margin:7px 0}
+.topbar{height:88px;position:absolute;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(8,8,7,.75) 0%,rgba(8,8,7,.3) 70%,transparent 100%);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}.brand{display:flex;align-items:center;gap:13px;color:white;background:none;border:0;cursor:pointer;padding:0}.brand-monogram{font-family:"Libre Baskerville",serif;font-size:24px;letter-spacing:-1px;border-left:2px solid var(--gold);border-top:2px solid var(--gold);padding:0 7px 3px;font-weight:700}.brand-name{font:600 16px "Manrope",sans-serif;letter-spacing:-.01em;text-align:left}.brand-name small{display:block;color:#d7a45b;letter-spacing:.22em;font-size:7.5px;margin-top:3px;font-weight:700}
+.nav{display:flex;gap:28px;margin-left:48px;margin-right:auto}.nav button{background:none;border:0;color:#d6d2ca;font-size:13.5px;font-weight:500;cursor:pointer;transition:.3s;font-family:"Manrope",sans-serif}.nav button:hover{color:var(--gold)}.nav-cta{color:white;text-decoration:none;border:1px solid rgba(213,155,66,.55);padding:11px 18px;border-radius:4px;font-size:12px;font-weight:600;transition:.3s;font-family:"Manrope",sans-serif;margin-left:auto}.nav-cta:hover{background:var(--gold);color:#111}.nav-cta span{color:var(--gold);margin-right:7px}.menu-toggle{display:none;background:none;border:0;width:40px}.menu-toggle i{display:block;height:1px;background:white;margin:7px 0}
 /* Hero Full-bleed Background Layout */
-.hero{height:100svh;min-height:760px;position:relative;display:flex;align-items:center;background:#080807;overflow:hidden}
+.hero{height:100svh;min-height:780px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;background:#080807;overflow:hidden}
 .hero-bg-wrapper{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:hidden}
+.hero-bg-wrapper:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(to top,rgba(8,8,7,.97) 0%,rgba(8,8,7,.82) 22%,rgba(8,8,7,.25) 45%,transparent 68%),linear-gradient(to bottom,rgba(8,8,7,.55) 0%,transparent 15%)}
 .hero-picture{display:block;width:100%;height:100%}
-.hero-bg-img{width:100%;height:100%;object-fit:cover;object-position:right center;filter:none;display:block}
+.hero-bg-img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:none;display:block}
 .hero-bg-overlay{display:none!important}
 .hero-grain{display:none!important}
-.hero-content{position:relative;z-index:3;margin-left:6.5vw;margin-top:40px;max-width:530px}
-.hero-kicker{font-family:"Manrope",sans-serif;font-size:12px;letter-spacing:.22em;color:#efb961;margin:0 0 22px;display:flex;align-items:center;gap:14px;font-weight:700;text-transform:uppercase}
+.hero-content{position:relative;z-index:3;margin:auto 5vw 42px;width:calc(100% - 10vw);max-width:1440px;display:grid;grid-template-columns:1.15fr .85fr;gap:5vw;align-items:flex-end}
+.hero-title-group{max-width:640px}
+.hero-kicker{font-family:"Manrope",sans-serif;font-size:12px;letter-spacing:.22em;color:#efb961;margin:0 0 14px;display:flex;align-items:center;gap:14px;font-weight:700;text-transform:uppercase}
 .hero-kicker span{width:36px;height:1px;background:var(--gold)}
-.hero-title{font:700 clamp(36px,4.3vw,60px)/1.14 "Libre Baskerville",serif;letter-spacing:-.025em;margin:0;color:#f7f4ee;text-shadow:0 4px 24px rgba(0,0,0,.7)}
+.hero-title{font:700 clamp(36px,3.8vw,54px)/1.12 "Libre Baskerville",serif;letter-spacing:-.025em;margin:0;color:#f7f4ee;text-shadow:0 4px 24px rgba(0,0,0,.8)}
 .hero-title .line{display:block;overflow:hidden;padding-bottom:.08em}
 .hero-title .line span{display:block}
 .hero-title em{color:var(--gold);font-style:italic;font-weight:400}
-.hero-copy{font-family:"Manrope",sans-serif;font-size:16.5px;line-height:1.75;color:#d6d1c7;margin:22px 0 32px;max-width:530px;text-shadow:0 2px 12px rgba(0,0,0,.7);font-weight:400}
+.hero-action-group{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding-bottom:4px}
+.hero-copy{font-family:"Manrope",sans-serif;font-size:15.5px;line-height:1.65;color:#d6d1c7;margin:0;max-width:460px;text-shadow:0 2px 12px rgba(0,0,0,.8);font-weight:400}
 .hero-actions{display:flex;gap:14px;align-items:center}
 .hero-cta-btn{display:inline-flex;align-items:center;gap:10px}
-.hero-badges{margin-top:36px;display:flex;align-items:center;gap:22px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.14);width:fit-content}
-.hero-badge-item strong{display:block;font-size:11px;letter-spacing:0.16em;color:var(--gold);font-weight:700;font-family:"Manrope",sans-serif}
-.hero-badge-item span{display:block;font-size:14px;color:#d8d3c7;margin-top:2px;font-weight:500;font-family:"Manrope",sans-serif}
-.hero-badge-divider{width:1px;height:28px;background:rgba(255,255,255,0.18)}
+.hero-badges{margin-top:4px;display:flex;align-items:center;gap:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);width:fit-content}
+.hero-badge-item strong{display:block;font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:700;font-family:"Manrope",sans-serif}
+.hero-badge-item span{display:block;font-size:13.5px;color:#d8d3c7;margin-top:2px;font-weight:500;font-family:"Manrope",sans-serif}
+.hero-badge-divider{width:1px;height:24px;background:rgba(255,255,255,.18)}
 .button{padding:16px 28px;border-radius:4px;border:1px solid transparent;cursor:pointer;font-family:"Manrope",sans-serif;font-weight:700;font-size:14.5px;letter-spacing:.05em;text-transform:uppercase;transition:transform .25s,background .25s,box-shadow .25s}
 .button:hover{transform:translateY(-3px)}
 .button span{margin-left:18px}
@@ -287,13 +290,15 @@
       linear-gradient(to bottom, rgba(8,8,7,0.45) 0%, transparent 18%);
   }
   .hero-picture{display:block;width:100%;height:100%}
-  .hero-bg-img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:none!important;opacity:1!important;display:block}
+  .hero-bg-img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:none!important;opacity:1!important;display:block}
   .hero-bg-overlay{display:none!important}
-  .hero-content{position:relative;z-index:3;margin:0;padding:105px 22px 28px;width:100%;max-width:100%;background:transparent;display:flex;flex-direction:column;height:100%;justify-content:space-between}
+  .hero-content{position:relative;z-index:3;margin:0;padding:105px 22px 28px;width:100%;max-width:100%;background:transparent;display:flex;flex-direction:column;height:100%;justify-content:space-between;gap:20px}
+  .hero-title-group{max-width:100%}
   .hero-kicker{font-size:12.5px;margin:0 0 10px;letter-spacing:.22em;font-weight:600}
   .hero-kicker span{width:22px}
   .hero-title{font-size:clamp(33px,8.5vw,45px);line-height:1.06;margin:0}
-  .hero-copy{font-size:16px;line-height:1.55;color:#cfcbc2;margin:12px 0 20px}
+  .hero-action-group{width:100%;display:flex;flex-direction:column;gap:14px;padding-bottom:0}
+  .hero-copy{font-size:16px;line-height:1.55;color:#cfcbc2;margin:0}
   .hero-copy br{display:none}
   .hero-actions{flex-direction:column;align-items:stretch;width:100%;gap:10px}
   .hero-cta-btn{width:100%;justify-content:center;padding:15px 18px;font-size:15px;letter-spacing:.04em}
