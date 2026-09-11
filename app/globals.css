@@ -72,12 +72,12 @@ h1, h2, h3, h4, h5, h6,
 .hero-title-group{max-width:640px}
 .hero-kicker{font-family:"Barlow",sans-serif;font-size:12px;letter-spacing:.22em;color:#efb961;margin:0 0 14px;display:flex;align-items:center;gap:14px;font-weight:700;text-transform:uppercase}
 .hero-kicker span{width:36px;height:1px;background:var(--gold)}
-.hero-title{font-family:"Barlow",Georgia,serif!important;font-weight:700;font-size:clamp(40px,4.5vw,64px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#f7f4ee;text-shadow:0 4px 24px rgba(0,0,0,.8)}
+.hero-title{font-family:"Barlow",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;font-weight:700;font-size:clamp(40px,4.5vw,64px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#f7f4ee;text-shadow:none}
 .hero-title .line{display:block;overflow:hidden;padding-bottom:.08em}
 .hero-title .line span{display:block}
 .hero-title em{color:var(--gold);font-style:italic;font-weight:400}
 .hero-action-group{display:flex;flex-direction:column;align-items:flex-start;gap:18px;padding-bottom:4px}
-.hero-copy{font-family:"Barlow",sans-serif;font-size:15.5px;line-height:1.65;color:#d6d1c7;margin:0;max-width:460px;text-shadow:0 2px 12px rgba(0,0,0,.8);font-weight:400}
+.hero-copy{font-family:"Barlow",sans-serif;font-size:15.5px;line-height:1.65;color:#d6d1c7;margin:0;max-width:460px;text-shadow:none;font-weight:400}
 .hero-actions{display:flex;gap:14px;align-items:center}
 .hero-cta-btn{display:inline-flex;align-items:center;gap:10px}
 .hero-badges{margin-top:4px;display:flex;align-items:center;gap:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);width:fit-content}
