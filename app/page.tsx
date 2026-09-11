@@ -146,7 +146,7 @@ export default function Home() {
 
   const getWhatsAppUrl = () => {
     const text = "Olá, Marcelo Barros & Advogados Associados. Gostaria de agendar uma consulta inicial.";
-    return `https://wa.me/5585999999999?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/5581982285597?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -183,6 +183,7 @@ export default function Home() {
             </a>
             <div className="mobile-nav-info">
               <p>Rua Bruno Veloso, 1280, Sala 609<br/>Edf. Grand Tower Shopping — Recife - PE</p>
+              <a href="tel:+5581982285597" className="mobile-nav-phone">(81) 98228-5597</a>
               <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">@marcelobarros.adv <ArrowUpRight /></a>
             </div>
           </div>
@@ -368,6 +369,7 @@ export default function Home() {
         <button className="brand footer-brand" onClick={() => go("#inicio")}><img className="brand-logo" src="/logo-marcelo-barros.png" alt="Marcelo Barros & Advogados Associados" /></button>
         <p>© 2026 Marcelo Barros & Advogados Associados</p>
         <div>
+          <a href="tel:+5581982285597">(81) 98228-5597</a>
           <a href="https://www.instagram.com/marcelobarros.adv/" target="_blank" rel="noreferrer">Instagram</a>
           <a href="#inicio">LinkedIn</a>
         </div>
